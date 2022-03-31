@@ -1,0 +1,42 @@
+﻿@model IEnumerable<Practical12Test2.Models.Employee>
+
+@{
+    ViewBag.Title = "Count";
+}
+
+<h2>Count</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.designations.designation)
+        </th>
+        <th>
+            <label>count</label>
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model.GroupBy(x => x.designations.designation, (key, items) => new { designation = key, Count = items.Count() }))
+    {
+
+
+        <tr>
+            <td>
+
+                @Html.DisplayFor(modelItem => item.designation)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Count)
+            </td>
+
+
+        </tr>
+        
+    }
+
+</table>
