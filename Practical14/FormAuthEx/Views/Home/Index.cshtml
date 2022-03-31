@@ -1,0 +1,16 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+@if (User.Identity.IsAuthenticated)
+{
+    <h2>Welcome- @User.Identity.Name</h2>
+
+}
+else
+{
+
+    <h2>Home Page</h2>
+
+}
+
